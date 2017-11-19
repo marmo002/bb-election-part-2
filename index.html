@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Bikini Bottom Election</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.js"></script>
+    <script src="election.js"></script>
+  </head>
+  <body>
+    <!-- I'm ready, I'm ready, I'm ready! -->
+    <ul id="candidates">
+
+    </ul>
+
+
+    <script id="candidates-template" type="text/x-handlebars-template">
+      <li>
+        <span>
+          <strong>{{ name }}: </strong>
+        </span>
+        <span class="candidate-votes">{{ votes }}</span>
+        <form id="{{ name }}" action="https://bb-election-api.herokuapp.com/vote" method="POST">
+          <input type="hidden" name="id" value="{{ id }}">
+          <input type="submit" value="vote">
+        </form>
+      </li>
+    </script>
+  </body>
+</html>
